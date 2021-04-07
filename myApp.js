@@ -8,8 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 
 app.get("/", function(req, res) {
-  console.log("hi");
-  res.json({ name: 'Naser Nikzad' });
+    res.sendFile(__dirname + "/views/index.html");
 });
 
 app.get("/test", function(req, res) {
