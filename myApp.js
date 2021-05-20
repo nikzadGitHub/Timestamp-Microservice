@@ -1,60 +1,70 @@
-var express = require('express');
-var app = express();
-
-const bodyParser = require('body-parser');
-
-// --> 11)  Mount the body-parser middleware  here
-app.use(bodyParser.urlencoded({ extended: false}));
+require('dotenv').config();
 
 
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/views/index.html");
-});
+let Person;
 
-app.get("/test", function(req, res) {
+const createAndSavePerson = (done) => {
+  done(null /*, data*/);
+};
 
-});
+const createManyPeople = (arrayOfPeople, done) => {
+  done(null /*, data*/);
+};
 
-app.post("/name", function(req, res) {
-  // Handle the data in the request
-  var string = req.body.first + " " + req.body.last;
-  res.json({ name: string });
-});
+const findPeopleByName = (personName, done) => {
+  done(null /*, data*/);
+};
 
+const findOneByFood = (food, done) => {
+  done(null /*, data*/);
+};
 
+const findPersonById = (personId, done) => {
+  done(null /*, data*/);
+};
 
+const findEditThenSave = (personId, done) => {
+  const foodToAdd = "hamburger";
 
+  done(null /*, data*/);
+};
 
+const findAndUpdate = (personName, done) => {
+  const ageToSet = 20;
 
+  done(null /*, data*/);
+};
 
+const removeById = (personId, done) => {
+  done(null /*, data*/);
+};
 
+const removeManyPeople = (done) => {
+  const nameToRemove = "Mary";
 
+  done(null /*, data*/);
+};
 
+const queryChain = (done) => {
+  const foodToSearch = "burrito";
 
+  done(null /*, data*/);
+};
 
+/** **Well Done !!**
+/* You completed these challenges, let's go celebrate !
+ */
 
+//----- **DO NOT EDIT BELOW THIS LINE** ----------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+exports.PersonModel = Person;
+exports.createAndSavePerson = createAndSavePerson;
+exports.findPeopleByName = findPeopleByName;
+exports.findOneByFood = findOneByFood;
+exports.findPersonById = findPersonById;
+exports.findEditThenSave = findEditThenSave;
+exports.findAndUpdate = findAndUpdate;
+exports.createManyPeople = createManyPeople;
+exports.removeById = removeById;
+exports.removeManyPeople = removeManyPeople;
+exports.queryChain = queryChain;
