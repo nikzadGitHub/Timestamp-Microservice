@@ -1,6 +1,23 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
 
+const schema = new mongoose.Schema({
+  name:  {
+    type: String,
+    required: [true, 'Why no name?']
+  },
+  age: Number,
+  favoriteFoods: [String],
+});
+
+const Person = mongoose.model('Person', schema);
+
+const CreateInstance = function(done) {
+  const Person = mongoose.model('Person', personSchema);
+  if (error) return done(error);
+  done(null, result);
+};
+
 console.log(123);
 console.log(process.env.MONGO_URI);
 
