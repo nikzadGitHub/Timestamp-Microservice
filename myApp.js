@@ -10,14 +10,8 @@ const schema = new mongoose.Schema({
   favoriteFoods: [String],
 });
 
-let Person;
+let Person = mongoose.model('Person', schema);
 
-
-const CreateInstance = function(done) {
-  Person = mongoose.model('Person', personSchema);
-  
-  done(null, Person);
-};
 
 console.log(123);
 console.log(process.env.MONGO_URI);
@@ -26,7 +20,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  var person = new Person({name: 'Ben', age: 23, favouriteFoods: ['tuna', 'bread']})
+ person.save((err, data)=>{
+  if (err) return done(err)
+  return done(null, data)
+ });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
