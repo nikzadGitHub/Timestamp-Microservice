@@ -73,13 +73,7 @@ const findEditThenSave = (personId, done) => {
       if (err) return done(err)
       return done(null, data)
      });
-
-
   });
-};
-
-
-  done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
