@@ -102,8 +102,10 @@ const removeManyPeople = (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-
-  done(null /*, data*/);
+   Person.find({name: personName}).where('favoriteFoods').in([foodToSearch]).sort('name').limit(2).select('name favouriteFoods').exec(function (err, result) {
+    if (err) return console.log(err);
+    done(null, result);
+  }); 
 };
 
 /** **Well Done !!**
