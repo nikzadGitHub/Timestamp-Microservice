@@ -24,7 +24,7 @@ app.get('/api/:date?',function(req,res){
 
     if(new Date(input) != 'Invalid Date') {
 
-      console.log('valid input date')
+      console.log('valid input date2')
 
       // Time conversion to unix and utc
       outPut = { 
