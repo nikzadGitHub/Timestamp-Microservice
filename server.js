@@ -30,14 +30,14 @@ app.get('/api/:date?',function(req,res){
         utc: new Date(input).toGMTString(),
       }
     }
-    else if(new Date(input * 1000) != 'Invalid Date') {
+    else if(new Date(input) != 'Invalid Date') {
       // Time conversion to unix and utc
       outPut = { 
         unix : input,
-        utc: new Date(input * 1000).toGMTString()
+        utc: new Date(input).toGMTString()
       }
     } 
-    
+
     res.json(outPut);
 });
 
