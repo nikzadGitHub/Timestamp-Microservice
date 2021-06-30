@@ -21,16 +21,15 @@ app.get('/api/:date?',function(req,res){
     }
 
     if(new Date(input) != 'Invalid Date') {
-
-      console.log('valid input date')
-
+      console.log('ISO date provided!')
       // Time conversion to unix and utc
       outPut = { 
         unix : new Date(input).getTime(),
         utc: new Date(input).toGMTString(),
       }
     }
-    else if(new Date(input * 1000) != 'Invalid Date') {
+    else if(new Date(input * 1) != 'Invalid Date') {
+      console.log('Unix date provided!')
       // Time conversion to unix and utc
       outPut = { 
         unix : input,
