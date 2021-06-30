@@ -5,6 +5,29 @@
 var express = require('express');
 var app = express();
 
+app.use(ignoreFavicon);
+app.use('/',express.static(__dirname+'/public'));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+// var allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+//   // intercept OPTIONS method
+//   if ('OPTIONS' == req.method) {
+//     res.send(200);
+//   }
+//   else {
+//     next();
+//   }
+// };
+
 app.get('/api/:date?',function(req,res){
 
     let input = req.params.date;
@@ -35,15 +58,6 @@ app.get('/api/:date?',function(req,res){
     } 
 
     res.json(outPut);
-});
-
-app.use(ignoreFavicon);
-app.use('/',express.static(__dirname+'/public'));
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
