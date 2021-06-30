@@ -33,7 +33,7 @@ app.get('/api/:date?',function(req,res){
       // Time conversion to unix and utc
       outPut = { 
         unix : input,
-        utc: new Date(input).toGMTString()
+        utc: new Date(input * 1).toGMTString()
       }
     } 
 
