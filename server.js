@@ -5,9 +5,6 @@
 var express = require('express');
 var app = express();
 
-var moment = require("./moment.js");
-// var port = Number(process.env.PORT||50893);
-
 app.get('/api/:date?',function(req,res){
 
     let input = req.params.date;
