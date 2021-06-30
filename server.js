@@ -17,10 +17,8 @@ app.get('/api/:date?',function(req,res){
     // Handle empty, get current time.
     if (typeof input == 'undefined' || input.length == 0) {
       console.log('undefined or empty')
-      input = moment(); // Get current time
+      input = new Date(); // Get current time
     }
-
-    console.log('next step')
 
     if(new Date(input) != 'Invalid Date') {
 
@@ -28,18 +26,19 @@ app.get('/api/:date?',function(req,res){
 
       // Time conversion to unix and utc
       outPut = { 
-        unix : moment(input).unix(),
-        utc: moment.utc(input).format("ddd, DD MMM YYYY h:mm:ss ") + 'GMT'
+        unix : new Date(input).getTime(),
+        utc: new Date(input).toGMTString(),
       }
     }
-    else {
+    else if(new Date(input * 1000) != 'Invalid Date') {
       // Time conversion to unix and utc
       outPut = { 
         unix : input,
         utc: new Date(input * 1000).toGMTString()
       }
-    }  
-      res.json(outPut);
+    } 
+    
+    res.json(outPut);
 });
 
 app.use(ignoreFavicon);
