@@ -14,20 +14,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-// var allowCrossDomain = function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-//   // intercept OPTIONS method
-//   if ('OPTIONS' == req.method) {
-//     res.send(200);
-//   }
-//   else {
-//     next();
-//   }
-// };
-
 app.get('/api/:date?',function(req,res){
 
     let input = req.params.date;
@@ -57,7 +43,7 @@ app.get('/api/:date?',function(req,res){
       }
     } 
 
-    res.json(outPut);
+    res.json(JSON.stringify(outPut));
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
