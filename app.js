@@ -1,35 +1,20 @@
 const express = require('express');
-const hbs = require('handlebars'); 
+const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
-const date = require('./date/date');
+const app = express();
+const port = process.env.PORT || 3000;
 
-var app = express(); 
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'ejs');
 
-const port = process.env.PORT || 3000; 
+app.use(express.static(`${__dirname}/public`));
 
-app.set('view engine', hbs); 
+app.use('/', indexRouter);
+app.use('/api/timestamp', apiRouter);
 
-app.use(express.static(__dirname + '/public'));
-
-app.get('/', (req, res) => {
-    res.render(__dirname + '/public/index.hbs');
+app.use((req, res, next) => {
+    res.status(404).render('404', {title: 'Page not found'});
 });
 
-app.get('/submit', (req, res) => {
-    console.log('App.js input ', req.query.input);
-    console.log(typeof req.query.input);
-    var input = req.query.input; 
-    var output = date.convert(input); 
-    console.log('App.js output ', output);
- 
-    res.render(__dirname + '/public/index.hbs', {
-        date: output.ds, 
-        timestamp: output.ts
-    });
-    
-});
-
-app.listen(port, () => {
-    console.log(`Running on port ${port}`);
-})
-
+app.listen(port, console.log(`Server is listening at port ${port}.`));

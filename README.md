@@ -1,27 +1,37 @@
-###Timestamp Microservice
+# Timestamp API
 
-https://blooming-harbor-86478.herokuapp.com/  (free account with initial loading delay)
+My project for the [Timestamp Microservice challenge](https://learn.freecodecamp.org/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice) as part of the curriculum for the Apis and Microservices Certification on [freeCodeCamp](https://www.freecodecamp.org).
 
-**Objective**  
-Build a full stack JavaScript app that is functionally similar to this: https://timestamp-ms.herokuapp.com/ and deploy it to Heroku.
+---
 
-**User Story**  
-1. I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).  
-2. If it does, it returns both the Unix timestamp and the natural language form of that date.    
-3. If it does not contain a date or Unix timestamp, it returns null for those properties.  
+## Built With
+* [Express.js](https://expressjs.com)
+* [EJS](https://ejs.co)
+* CSS3
+* [Moment.js](https://momentjs.com)
+* [Normalize.css](https://necolas.github.io/normalize.css)
+* [Google Fonts](https://fonts.google.com)
+* [nodemon](https://nodemon.io)
 
-**Technology**
-- Node and Express 4.14.0
-- Hbs (view engine)
-- Mocha (test framework) 
-- Expect (assertion library)
-- Git (version control)
-- Heroku (hosting)
+## Demo
 
-**Notes** 
-- hbs is a view engine for the handlebars templating language built as a plugin for express
-- a unix timestamp is a measure in seconds while the Javascript Date object returns a time in milliseconds
+View project demo at [https://autumnchris-timestamp.herokuapp.com](https://autumnchris-timestamp.herokuapp.com).
 
+## Instructions
 
+After forking and cloning, navigate to the repository in your command line and install the NPM packages:
+```
+npm install
+```
 
+Run the following script in your command line if starting the repository in development mode:
+```
+npm run dev
+```
 
+Run the following script in your command line if starting the repository in production mode:
+```
+npm start
+```
+
+Once the server is running, go to `http://localhost:3000` in your browser.
